@@ -57,8 +57,14 @@ function UpgradeOrInstallGolang() {
         echo "export PATH=\$PATH:\$GOROOT/bin"
     } >> ~/.bashrc
 
-    source ~/.bashrc
+    cd ~
+    mkdir $HOME/go
+
+    export GOROOT=/usr/local/go
+    export GOPATH=$HOME/go
+    export PATH=$PATH:$GOROOT/bin
     echo "go安装完成"
+    echo '输入: source ~/.bashrc, 让环境生效, 或重新打开终端.'
     go version
     exit 0
 }
